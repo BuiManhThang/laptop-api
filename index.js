@@ -37,7 +37,7 @@ app.use(express.urlencoded())
 app.use(express.static('./public'));
 app.use(cookieParser());
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     res.json('hello')
 })
 app.use('/products', productRouter);
