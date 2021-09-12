@@ -153,11 +153,11 @@ exports.user_update = [
                 user.address.city = req.body.city;
             }
             if(req.file) {
-                if(user.avata !== 'http://localhost:5000/images/users/default-avata.jpg') {
-                    const pathAvata = path.join(__dirname.slice(0, __dirname.indexOf('controllers')), 'public', user.avata.slice(user.avata.indexOf('images')));
+                if(user.avata !== 'default-avata.jpg') {
+                    const pathAvata = path.join(__dirname.slice(0, __dirname.indexOf('controllers')), 'public', 'images', 'users', user.avata);
                     await fs.unlinkSync(pathAvata);
                 }
-                user.avata = `http://localhost:5000/images/users/${req.file.filename}`;
+                user.avata = `${req.file.filename}`;
             }
             await User.updateOne({_id: user._id}, user);
             const {password, ...info} = user.toJSON();

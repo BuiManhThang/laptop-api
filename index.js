@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 
 const productRouter = require('./routers/product');
@@ -31,7 +31,7 @@ app.use(cors({
     optionsSuccessStatus: 200,
     credentials: true
 }))
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded())
 app.use(express.static('./public'));
