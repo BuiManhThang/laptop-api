@@ -11,7 +11,8 @@ const userSchema = new Schema({
         landmark: {type: String},
         city: {type: String},
     },
-    receipts: [{type: Schema.Types.ObjectId, ref: 'Receipt'}]
+    receipts: [{type: Schema.Types.ObjectId, ref: 'Receipt'}],
+    isAdmin: {type: Boolean, default: false}
 })
 
 module.exports = mongoose.model('User', userSchema);

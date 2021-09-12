@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopo
 })
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'https://buimanhthang.github.io'],
     optionsSuccessStatus: 200,
     credentials: true
 }))
