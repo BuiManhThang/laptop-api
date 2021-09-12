@@ -35,7 +35,9 @@ exports.user_register = [
 
             const token = jwt.sign({_id: newUser._id}, process.env.SECRET_KEY);
             res.cookie('jwt', token, {
-                httpOnly: true
+                httpOnly: true,
+                sameSite: 'none',
+                secure: true
             });
 
             const {password, ...info} = newUser.toJSON();
@@ -83,7 +85,9 @@ exports.user_signin = [
 
             const token = jwt.sign({_id: foundUser._id}, process.env.SECRET_KEY);
             res.cookie('jwt', token, {
-                httpOnly: true
+                httpOnly: true,
+                sameSite: 'None',
+                secure: true
             });
 
             const {password, ...info} = foundUser.toJSON();
